@@ -4,7 +4,7 @@
 // @description Add a section to the DuckDuckGo website.
 // @include     https://duckduckgo.com/*
 // @version     0.0.1
-// @require     https://github.com/jfjlaros/jso-dom/blob/master/src/jso_dom.js
+// @require     https://github.com/jfjlaros/jso-dom/raw/master/src/jso_dom.js
 // @grant       none
 // ==/UserScript==
 

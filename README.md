@@ -82,7 +82,7 @@ In a Greasemonkey user script, add the folowing line to the `UserScript`
 header:
 
 ```javascript
-// @require     https://github.com/jfjlaros/jso-dom/blob/master/src/jso_dom.js
+// @require     https://github.com/jfjlaros/jso-dom/raw/master/src/jso_dom.js
 ```
 
 
