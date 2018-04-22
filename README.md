@@ -1,8 +1,46 @@
-# Structure
-This library is designed to make the creation of a part of a DOM tree easier.
+# JavaScript Object to DOM
+This library aims to make the creation of (part of) a DOM tree easier. The main
+use case is in [Greasemonkey](https://www.greasespot.net/) user scripts.
 
-A motivating example. Suppose we want to add a section containing a title with
-an id, some verbatim text and a list. The following code would be required.
+
+## Background
+Suppose we want to add a section containing a title with an id, some verbatim
+text and a list to a website. This requires the following code:
+
+```javascript
+var root, temp, parent, child;
+
+root = document.createElement('div');
+parent = document.createElement('h3');
+parent.setAttribute('id', 'title_1');
+child = document.createTextNode('A title');
+parent.appendChild(child);
+root.appendChild(parent);
+
+parent = document.createElement('pre');
+child = document.createTextNode('Verbatim text.');
+parent.appendChild(child);
+root.appendChild(parent);
+
+temp = document.createElement('ul');
+parent = document.createElement('li');
+child = document.createTextNode('one');
+parent.appendChild(child);
+temp.appendChild(parent);
+
+parent = document.createElement('li');
+child = document.createTextNode('two');
+parent.appendChild(child);
+temp.appendChild(parent);
+
+parent = document.createElement('li');
+child = document.createTextNode('three');
+parent.appendChild(child);
+temp.appendChild(parent);
+root.appendChild(temp);
+```
+
+Resulting in the following HTML tree:
 
 ```html
 <div>
@@ -16,48 +54,19 @@ an id, some verbatim text and a list. The following code would be required.
 </div>
 ```
 
-```javascript
-var r, t, p, c;
+As we can see, quite some code is required to create the HTML tree. Other
+drawbacks of this method are:
 
-r = document.createElement('div');
-p = document.createElement('h3');
-p.setAttribute('id', 'title_1');
-c = document.createTextNode('A title');
-p.appendChild(c);
-r.appendChild(p);
+- The need to keep track of quite a number of variables.
+- The nested structure of HTML tree is not apparent, making code maintenance
+  difficult.
 
-p = document.createElement('pre');
-c = document.createTextNode('Verbatim text.');
-p.appendChild(c);
-r.appendChild(p);
-
-t = document.createElement('ul');
-p = document.createElement('li');
-c = document.createTextNode('one');
-p.appendChild(c);
-t.appendChild(p);
-
-p = document.createElement('li');
-c = document.createTextNode('two');
-p.appendChild(c);
-t.appendChild(p);
-
-p = document.createElement('li');
-c = document.createTextNode('three');
-p.appendChild(c);
-t.appendChild(p);
-r.appendChild(t);
-```
-
-Drawbacks:
-
-- We need to keep track of quite a number of variables.
-- Since inherent nested structure of the created object is not apparent, it is
-  difficult to see the hierarchical structure.
-- We need quite a lot of code to make a simple structure.
+To address these problems, this library offers the `JSOToDOM` function which
+takes a nested JavaScript Object as input and output a DOM. In our example, the
+code required using this function is as follows:
 
 ```javascript
-s = makeStructure({
+var root = JSOToDOM({
   'div': {
     'h3': {'attrs': {'id': 'title_1'}, 'text': 'A title'},
     'pre': {'text': 'Verbatim text.'},
@@ -66,3 +75,21 @@ s = makeStructure({
       {'li': {'text': 'two'}},
       {'li': {'text': 'three'}}]}});
 ```
+
+
+## Installation
+In a Greasemonkey user script, add the folowing line to the `UserScript`
+header:
+
+```javascript
+// @require     https://github.com/jfjlaros/jso-dom/blob/master/src/jso_dom.js
+```
+
+
+## Usage
+TODO.
+
+### `attrs`
+### `text`
+### `event`
+### Lists
