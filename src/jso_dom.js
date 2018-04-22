@@ -1,53 +1,53 @@
 'use strict';
 
-/* Make a structure from a definition in JSON format.
+/* Make a DOM from a JavaScript Object.
 
-:arg object structure: The newly created structure.
+:arg object tree: The newly created DOM.
 :arg object definition: Definition in JSON format.
 */
-function _makeStructure(structure, definition) {
+function _JSOToDOM(tree, definition) {
   var element, key, attr;
 
   if (!Array.isArray(definition)) {
     for (key in definition) {
       if (key === 'attrs') {
         for (attr in definition.attrs) {
-          structure.setAttribute(attr, definition.attrs[attr]);
+          tree.setAttribute(attr, definition.attrs[attr]);
         }
       }
       else if (key === 'text') {
         element = document.createTextNode(definition.text);
-        structure.appendChild(element);
+        tree.appendChild(element);
       }
       else if (key === 'event') {
-        structure.addEventListener(
+        tree.addEventListener(
           definition.event.type, definition.event.listener);
       }
       else {
         element = document.createElement(key);
-        _makeStructure(element, definition[key]);
-        structure.appendChild(element);
+        _JSOToDOM(element, definition[key]);
+        tree.appendChild(element);
       }
     }
   }
   else {
     for (key in definition) {
-      _makeStructure(structure, definition[key]);
+      _JSOToDOM(tree, definition[key]);
     }
   }
 }
 
-/* Make a structure from a definition in JSON format.
+/* Make a DOM from a JavaScript Object.
 
 :arg object definition: Definition in JSON format.
 
-:returns object: The newly created structure.
+:returns object: The newly created DOM.
 */
-function makeStructure(definition) {
+function JSOToDOM(definition) {
   var key = Object.keys(definition)[0],
-      element = document.createElement(key);
+      root = document.createElement(key);
 
-  _makeStructure(element, definition[key]);
+  _JSOToDOM(root, definition[key]);
 
-  return element;
+  return root;
 }
