@@ -25,7 +25,7 @@ var element = document.getElementById('content_homepage'),
             {'li': {'text': 'two'}},
             {'li': {'text': 'three'}}],
           'a': {
-              'attrs': {'href': 'https://https://github.com/jfjlaros/jso-dom'},
+              'attrs': {'href': 'https://github.com/jfjlaros/jso-dom'},
               'text': 'some link'}}},
         {'div': {
           'h3': {
