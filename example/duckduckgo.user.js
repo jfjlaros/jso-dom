@@ -17,29 +17,29 @@ var element = document.getElementById('content_homepage'),
       'div': [
         {'div': {
           'h3': {
-            'attrs': {'id': 'title_1'},
-            'text': 'A title'},
+              'attrs': {'id': 'title_1'},
+              'text': 'A title'},
           'pre': {'text': 'Verbatim text.'},
           'ul': [
             {'li': {'text': 'one'}},
             {'li': {'text': 'two'}},
             {'li': {'text': 'three'}}],
           'a': {
-            'attrs': {'href': 'https://https://github.com/jfjlaros/jso-dom'},
-            'text': 'some link'}}},
+              'attrs': {'href': 'https://https://github.com/jfjlaros/jso-dom'},
+              'text': 'some link'}}},
         {'div': {
           'h3': {
-            'attrs': {'id': 'title_2'},
-            'text': 'Another title'},
+              'attrs': {'id': 'title_2'},
+              'text': 'Another title'},
           'button': {
-            'attrs': {'onclick': 'alert("Hi there.");'},
-            'text': 'Click me'}}},
+              'attrs': {'onclick': 'alert("Hi there.");'},
+              'text': 'Click me'}}},
         {'div': {
           'h3': {
-            'attrs': {'id': 'title_3'},
-            'text': 'Yet another title'},
+              'attrs': {'id': 'title_3'},
+              'text': 'Yet another title'},
           'button': {
-            'event': {'type': 'click', 'listener': callback},
-            'text': 'Click me too'}}}]});
+              'event': {'type': 'click', 'listener': callback},
+              'text': 'Click me too'}}}]});
 
 element.appendChild(tree);
