@@ -78,9 +78,9 @@ var root = JSOToDOM({
   'div': {
     'h3': {
         'attrs': {'id': 'title_1'},
-        'text': 'A title'},
+      'text': 'A title'},
     'pre': {
-        'text': 'Verbatim text.'},
+      'text': 'Verbatim text.'},
     'ul': [
       {'li': {'text': 'one'}},
       {'li': {'text': 'two'}},
@@ -187,7 +187,7 @@ This can be combined with the `attrs` key:
 var root = JSOToDOM({
   'div': {
       'attrs': {'style': 'background-color:blue'},
-      'text': 'Am I blue yet?'}});
+    'text': 'Am I blue yet?'}});
 ```
 
 ### The `event` key
@@ -200,7 +200,7 @@ Using attributes, simple pieces of JavaScript code can be executed:
 var root = JSOToDOM({
   'button': {
       'attrs': {'onclick': 'alert("Hi there.");'},
-      'text': 'Click me'}});
+    'text': 'Click me'}});
 ```
 
 To make a proper callback function in Greasemonkey user scripts, an event
@@ -214,5 +214,5 @@ function callback() {
 var root = JSOToDOM({
   'button': {
       'event': {'type': 'click', 'listener': callback},
-      'text': 'Click me too'}});
+    'text': 'Click me too'}});
 ```

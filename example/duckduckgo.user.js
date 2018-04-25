@@ -18,7 +18,7 @@ var element = document.getElementById('content_homepage'),
         {'div': {
           'h3': {
               'attrs': {'id': 'title_1'},
-              'text': 'A title'},
+            'text': 'A title'},
           'pre': {'text': 'Verbatim text.'},
           'ul': [
             {'li': {'text': 'one'}},
@@ -26,20 +26,20 @@ var element = document.getElementById('content_homepage'),
             {'li': {'text': 'three'}}],
           'a': {
               'attrs': {'href': 'https://github.com/jfjlaros/jso-dom'},
-              'text': 'some link'}}},
+            'text': 'some link'}}},
         {'div': {
           'h3': {
               'attrs': {'id': 'title_2'},
-              'text': 'Another title'},
+            'text': 'Another title'},
           'button': {
               'attrs': {'onclick': 'alert("Hi there.");'},
-              'text': 'Click me'}}},
+            'text': 'Click me'}}},
         {'div': {
           'h3': {
               'attrs': {'id': 'title_3'},
-              'text': 'Yet another title'},
+            'text': 'Yet another title'},
           'button': {
               'event': {'type': 'click', 'listener': callback},
-              'text': 'Click me too'}}}]});
+            'text': 'Click me too'}}}]});
 
 element.appendChild(tree);
