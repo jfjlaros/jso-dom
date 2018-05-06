@@ -1,10 +1,11 @@
 'use strict';
 
-/* Make a DOM from a JavaScript Object.
-
-:arg object tree: The newly created DOM.
-:arg object definition: Definition in JSON format.
-*/
+/**
+ * Make a DOM from a JavaScript Object.
+ *
+ * @arg {Object} tree - The newly created DOM.
+ * @arg {Object} definition - Definition in JSON format.
+ */
 function _JSOToDOM(tree, definition) {
   var element, key, attr;
 
@@ -37,12 +38,13 @@ function _JSOToDOM(tree, definition) {
   }
 }
 
-/* Make a DOM from a JavaScript Object.
-
-:arg object definition: Definition in JSON format.
-
-:returns object: The newly created DOM.
-*/
+/**
+ * Make a DOM from a JavaScript Object.
+ *
+ * @arg {Object} definition - Definition in JSON format.
+ *
+ * @return {Object} - The newly created DOM.
+ */
 function JSOToDOM(definition) {
   var key = Object.keys(definition)[0],
       root = document.createElement(key);
