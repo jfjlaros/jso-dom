@@ -70,7 +70,7 @@ Some drawbacks of this manual creation are immediately apparent:
   maintenance difficult.
 
 To address these problems, this library provides the function `JSOToDOM()`
-which takes a nested JSO as input and output a DOM. The following call to this
+which takes a nested JSO as input and outputs a DOM. The following call to this
 function creates the HTML tree from our example:
 
 ```javascript
@@ -88,7 +88,7 @@ var root = JSOToDOM({
 ```
 
 This code is a lot more compact than the original and arguably more readable
-and therefore maintainable.
+and therefore more maintainable.
 
 
 ## Installation
@@ -199,7 +199,7 @@ Using attributes, simple pieces of JavaScript code can be executed:
 ```javascript
 var root = JSOToDOM({
   "button": {
-      "attrs": {"onclick": "alert("Hi there.");"},
+      "attrs": {"onclick": "alert(\"Hi there.\");"},
     "text": "Click me"}});
 ```
 

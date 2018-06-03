@@ -32,7 +32,7 @@ var element = document.getElementById("content_homepage"),
               "attrs": {"id": "title_2"},
             "text": "Another title"},
           "button": {
-              "attrs": {"onclick": "alert("Hi there.");"},
+              "attrs": {"onclick": "alert(\"Hi there.\");"},
             "text": "Click me"}}},
         {"div": {
           "h3": {
