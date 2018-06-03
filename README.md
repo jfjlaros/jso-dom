@@ -61,7 +61,7 @@ Resulting in the following HTML tree:
 </div>
 ```
 
-Some drawbacks of this manual creation is immediately apparent:
+Some drawbacks of this manual creation are immediately apparent:
 
 - Quite some code is required to create a modestly sized HTML tree.
 - We need to keep track of quite a number of variables, this number grows as
