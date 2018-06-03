@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Make a DOM from a JavaScript Object.
@@ -11,16 +11,16 @@ function _JSOToDOM(tree, definition) {
 
   if (!Array.isArray(definition)) {
     for (key in definition) {
-      if (key === 'attrs') {
+      if (key === "attrs") {
         for (attr in definition.attrs) {
           tree.setAttribute(attr, definition.attrs[attr]);
         }
       }
-      else if (key === 'text') {
+      else if (key === "text") {
         element = document.createTextNode(definition.text);
         tree.appendChild(element);
       }
-      else if (key === 'event') {
+      else if (key === "event") {
         tree.addEventListener(
           definition.event.type, definition.event.listener);
       }

@@ -17,31 +17,31 @@ text and a list to a website, the following code would be required:
 ```javascript
 var root, temp, parent, child;
 
-root = document.createElement('div');
-parent = document.createElement('h3');
-parent.setAttribute('id', 'title_1');
-child = document.createTextNode('A title');
+root = document.createElement("div");
+parent = document.createElement("h3");
+parent.setAttribute("id", "title_1");
+child = document.createTextNode("A title");
 parent.appendChild(child);
 root.appendChild(parent);
 
-parent = document.createElement('pre');
-child = document.createTextNode('Verbatim text.');
+parent = document.createElement("pre");
+child = document.createTextNode("Verbatim text.");
 parent.appendChild(child);
 root.appendChild(parent);
 
-temp = document.createElement('ul');
-parent = document.createElement('li');
-child = document.createTextNode('one');
+temp = document.createElement("ul");
+parent = document.createElement("li");
+child = document.createTextNode("one");
 parent.appendChild(child);
 temp.appendChild(parent);
 
-parent = document.createElement('li');
-child = document.createTextNode('two');
+parent = document.createElement("li");
+child = document.createTextNode("two");
 parent.appendChild(child);
 temp.appendChild(parent);
 
-parent = document.createElement('li');
-child = document.createTextNode('three');
+parent = document.createElement("li");
+child = document.createTextNode("three");
 parent.appendChild(child);
 temp.appendChild(parent);
 root.appendChild(temp);
@@ -75,16 +75,16 @@ function creates the HTML tree from our example:
 
 ```javascript
 var root = JSOToDOM({
-  'div': {
-    'h3': {
-        'attrs': {'id': 'title_1'},
-      'text': 'A title'},
-    'pre': {
-      'text': 'Verbatim text.'},
-    'ul': [
-      {'li': {'text': 'one'}},
-      {'li': {'text': 'two'}},
-      {'li': {'text': 'three'}}]}});
+  "div": {
+    "h3": {
+        "attrs": {"id": "title_1"},
+      "text": "A title"},
+    "pre": {
+      "text": "Verbatim text."},
+    "ul": [
+      {"li": {"text": "one"}},
+      {"li": {"text": "two"}},
+      {"li": {"text": "three"}}]}});
 ```
 
 This code is a lot more compact than the original and arguably more readable
@@ -111,13 +111,13 @@ is created, the type of which is determined by name of the key. For example,
 the following call will create a single `div` element:
 
 ```javascript
-var root = JSOToDOM({'div': {}});
+var root = JSOToDOM({"div": {}});
 ```
 
 And a `div` within a `div` is created as follows:
 
 ```javascript
-var root = JSOToDOM({'div': {'div': {}}});
+var root = JSOToDOM({"div": {"div": {}}});
 ```
 
 ### Lists
@@ -126,27 +126,27 @@ create multiple objects of the same type.
 
 ```javascript
 var root = JSOToDOM({
-  'div': [
-    {'div': {}},
-    {'div': {}}]});
+  "div": [
+    {"div": {}},
+    {"div": {}}]});
 ```
 
 Of course mixing of element types is not forbidden:
 
 ```javascript
 var root = JSOToDOM({
-  'div': [
-    {'div': {}},
-    {'pre': {}}]});
+  "div": [
+    {"div": {}},
+    {"pre": {}}]});
 ```
 
 But can be written a bit easier because all key names are unique:
 
 ```javascript
 var root = JSOToDOM({
-  'div': {
-    'div': {},
-    'pre': {}}});
+  "div": {
+    "div": {},
+    "pre": {}}});
 ```
 
 ### The `attrs` key
@@ -158,8 +158,8 @@ the background colour of this section to blue.
 
 ```javascript
 var root = JSOToDOM({
-  'div': {
-      'attrs': {'id': 'section_1', 'style': 'background-color:blue'}}});
+  "div": {
+      "attrs": {"id": "section_1", "style": "background-color: blue;"}}});
 ```
 
 Note that we double indent the `attrs` key to emphasise that this key is not a
@@ -168,9 +168,9 @@ in the following example:
 
 ```javascript
 var root = JSOToDOM({
-  'div': {
-      'attrs': {'id': 'section_1'},
-    'div': {}}});
+  "div": {
+      "attrs": {"id": "section_1"},
+    "div": {}}});
 ```
 
 ### The `text` key
@@ -178,16 +178,16 @@ The `text` key indicates that instead of a normal element, a text node should
 be created. The content of the text node is given by the value of the key.
 
 ```javascript
-var root = JSOToDOM({'text': 'Just some text.'});
+var root = JSOToDOM({"text": "Just some text."});
 ```
 
 This can be combined with the `attrs` key:
 
 ```javascript
 var root = JSOToDOM({
-  'div': {
-      'attrs': {'style': 'background-color:blue'},
-    'text': 'Am I blue yet?'}});
+  "div": {
+      "attrs": {"style": "background-color: blue;"},
+    "text": "Am I blue yet?"}});
 ```
 
 ### The `event` key
@@ -198,9 +198,9 @@ Using attributes, simple pieces of JavaScript code can be executed:
 
 ```javascript
 var root = JSOToDOM({
-  'button': {
-      'attrs': {'onclick': 'alert("Hi there.");'},
-    'text': 'Click me'}});
+  "button": {
+      "attrs": {"onclick": "alert("Hi there.");"},
+    "text": "Click me"}});
 ```
 
 To make a proper callback function in Greasemonkey user scripts, an event
@@ -208,11 +208,11 @@ listener s needed.
 
 ```javascript
 function callback() {
-  alert('Hi again.');
+  alert("Hi again.");
 }
 
 var root = JSOToDOM({
-  'button': {
-      'event': {'type': 'click', 'listener': callback},
-    'text': 'Click me too'}});
+  "button": {
+      "event": {"type": "click", "listener": callback},
+    "text": "Click me too"}});
 ```
